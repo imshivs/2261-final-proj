@@ -1257,7 +1257,7 @@ extern const unsigned short cloudsPal[256];
 # 20 "main.c" 2
 # 1 "kitchen.h" 1
 # 22 "kitchen.h"
-extern const unsigned short kitchenTiles[576];
+extern const unsigned short kitchenTiles[6560];
 
 
 extern const unsigned short kitchenMap[2048];
@@ -1624,7 +1624,7 @@ void game() {
     *(volatile unsigned short*)0x4000008 = 0 << 2 | 27 << 8 | 1<<14 | 1 << 7;
 
     loadPalette(kitchenPal);
-    DMANow(3, kitchenTiles, &((charblock *)0x6000000)[0], 1152/2);
+    DMANow(3, kitchenTiles, &((charblock *)0x6000000)[0], 13120/2);
     DMANow(3, kitchenMap, &((screenblock *)0x6000000)[27], 4096/2);
 
 
@@ -1894,7 +1894,7 @@ void game() {
         }
 
 
-        if((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0)))) && !mouse.isJumping) {
+        if((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0))))) {
             if ( mouse.bigRow > 0 &&
                         (collisionmapTempBitmap[((((int) mouse.bigRow) - ((int) mouse.rdel))*(512)+(mouse.bigCol + 1))] == ((31) | (31)<<5 | (31)<<10)) &&
                         (collisionmapTempBitmap[((((int) mouse.bigRow) - ((int) mouse.rdel))*(512)+(mouse.bigCol + mouse.width - 1))] == ((31) | (31)<<5 | (31)<<10)) ) {
@@ -2033,7 +2033,7 @@ void updateOAM(){
 
 void setupSounds()
 {
-        *(volatile u16 *)0x04000084 = (1<<7);
+    *(volatile u16 *)0x04000084 = (1<<7);
 
  *(volatile u16*)0x04000082 = (1<<1) |
                         (1<<2) |

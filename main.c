@@ -666,7 +666,7 @@ void game() {
         }
 
         //enable jumping with button press, only if the mouse is not already jumping, so no double jumps
-        if(BUTTON_PRESSED(BUTTON_A) && !mouse.isJumping) {
+        if(BUTTON_PRESSED(BUTTON_A)) {
             if ( mouse.bigRow > 0 &&
                         (collisionmapTempBitmap[OFFSET(((int) mouse.bigRow) - ((int) mouse.rdel), mouse.bigCol + 1, MAPCOL)] == WHITE) &&
                         (collisionmapTempBitmap[OFFSET(((int) mouse.bigRow) - ((int) mouse.rdel), mouse.bigCol + mouse.width - 1, MAPCOL)] == WHITE) ) {
@@ -805,7 +805,7 @@ void updateOAM(){
 
 void setupSounds()
 {
-        REG_SOUNDCNT_X = SND_ENABLED;
+    REG_SOUNDCNT_X = SND_ENABLED;
 
 	REG_SOUNDCNT_H = SND_OUTPUT_RATIO_100 |
                         DSA_OUTPUT_RATIO_100 |
